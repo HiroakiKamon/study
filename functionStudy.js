@@ -1,3 +1,4 @@
+
 //名前付き関数関数式　省略可能ななめを定義している特殊な関数式。
 
 var add = function add(a,b){
@@ -53,4 +54,52 @@ var hide = function (){
 
 hide(findNodes());
 
+var myapp = {};
+myapp.color = "green";
+myapp.paint = function(node){
+node.style.color = this.color;
+}
+
+var findeNodes = function (callbacK){
+   if (typeof callback === "function"){
+   callback(found);
+}
+}
+
+var setUp = function () {
+   var count = 0;
+   return function () {
+      return (count +=1)
+};
+};
+
+var next = setUp();
+next();
+next();
+next();
+
+var scareMe =function(){
+   alert("boo");
+   scareMe = function(){
+      alert("double boo");
+   };
+};
+
+scareMe.property = "properly"; //プロパティを追加するメソッド
+
+var prank = scareMe; //別の名前に代入
+
+var spooky = {      //メソッドとして使う。
+   boo : scareMe
+};
+prank();
+prank();
+console.log(prank.property);//properly
+
+
+//即時関数
+
+(function () {
+   alert('mister toyooka!');
+})();
 
